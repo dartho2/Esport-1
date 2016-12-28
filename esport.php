@@ -20,7 +20,10 @@
 }
 define( 'ESPORT_PATH', plugin_dir_path( __FILE__ ) );
 require_once ( ESPORT_PATH . '/inc/function-admin.php');
+require_once ( ESPORT_PATH . '/inc/taxonomy/esport-team-taxonomy.php');
+require_once ( ESPORT_PATH . '/inc/taxonomy/esport-season-taxonomy.php');
 require_once ( ESPORT_PATH . '/inc/post-type/esport-post-type.php');
+
 
 
 ?>
