@@ -27,7 +27,7 @@ function esport_season_taxonomy(){
 		'show_ui'			=> true,
 		'show_admin_column'	=> true,
 		'query_var'			=> true,
-		'rewrite'			=> array('slug' => 'season')
+		'rewrite'			=> array('slug' => 'Season')
 	);
 	register_taxonomy('season',array('esport-teams'), $args);
 	

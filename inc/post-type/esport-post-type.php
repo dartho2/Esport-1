@@ -44,10 +44,10 @@ function esport_post_type(){
 	
 function esport_post_event(){
 	$labels = array(
-		'name'			=> 'Events',
-		'singuar_name'	=> 'Event',
-		'menu_name'		=> 'Events',
-		'name_admin_bar'=> 'Event'
+		'name'				=> 'Events',
+		'singuar_name'		=> 'Event',
+		'menu_name'			=> 'Events',
+		'name_admin_bar'	=> 'Event'
 		);
 		
 	$args = array(
@@ -64,23 +64,38 @@ function esport_post_event(){
 	register_post_type( 'esport-event', $args );
 	
 }
-/* Funkcja zmieniajaca wyglad teams */
+	/* 	============================
+				META BOX
+		============================	*/
+
 function sunset_set_teams_columns( $columns ){
-	$newColumns =array();
-	$newColumns['league'] = 'league';
-	$newColumns['season'] = 'season';
-	$newColumns['icon'] = 'icon';
-	$newColumns['title'] = 'Teams';
+	
+		$newColumns =array();
+		$newColumns['icon'] = 'icon';
+		$newColumns['title'] = 'Teams';
+		$newColumns['league'] = 'league';
+		$newColumns['season'] = 'season';
 	return $newColumns;
 
 }
+
 function sunset_teams_custom_column($column, $post_id){
 	switch( $column ){
 	case 'league' :
-echo get_terms( 'league');
+	$terms = get_the_terms($post_id,'league');
+	if($terms && count($terms)){
+                    foreach ($terms as $term) {
+                        echo $term->name;
+                    }
+                }
 		break;
-		case 'Season' :
-echo "taxonomy_get";
+		case 'season' :
+	$terms = get_the_terms($post_id,'season');
+	if($terms && count($terms)){
+                    foreach ($terms as $term) {
+                        echo $term->name;
+                    }
+                }
 		break;
 	case 'icon' :
 	echo get_the_post_thumbnail($post = null, array( 50, 50), $attr = '');
