@@ -13,7 +13,7 @@
 	
 function esport_post_type(){
 	$labels = array(
-		'name'				=> 'Teams',
+		'name'				=> __('Teams', 'esport'),
 		'singuar_name'		=> 'Team',
 		'menu_name'			=> 'Teams',
 		'name_admin_bar'	=> 'Team',
@@ -40,6 +40,7 @@ function esport_post_type(){
 	);	
 	register_post_type( 'esport-teams', $args );
 	
+	
 }
 	
 function esport_post_event(){
@@ -54,7 +55,7 @@ function esport_post_event(){
 		'labels'			=> $labels,
 		'show_ui'			=> true,
 		'show_in_menu'		=> true,
-		'capability_type'	=> 'page',
+		'capability_type'	=> 'post',
 		'hierarchical'		=> true,
 		'menu_position'		=> 27,
 		'menu_icon'			=> 'dashicons-calendar-alt',
